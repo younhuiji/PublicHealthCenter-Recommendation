@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  public-health-center-recommendation-radis:
+    container_name: public-health-center-recommendation-radis
+    build:
+      dockerfile: Dockerfile
+      context: ./radis
+    image: yoonhuiji/public-health-center-recommendation-radis
+    ports:
+      - "6379:6379"
+  public-health-center-recommendation-database:
+    container_name: public-health-center-recommendation-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: yoonhuiji/public-health-center-recommendation-database
+    entrypoint:
+      - MARIADB_DATABASE=public-health-center-recommendation
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
