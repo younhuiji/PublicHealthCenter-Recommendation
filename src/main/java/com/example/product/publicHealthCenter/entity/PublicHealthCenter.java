@@ -1,5 +1,6 @@
 package com.example.product.publicHealthCenter.entity;
 
+import com.example.product.BaseTimeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PublicHealthCenter {
+public class PublicHealthCenter extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +27,7 @@ public class PublicHealthCenter {
     private double latitude;
     private double longitude;
 
+    public void changePublicHealthCenterAddress(String address){
+        this.publicHealthCenterAddress = address;
+    }
 }
