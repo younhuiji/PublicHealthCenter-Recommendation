@@ -11,6 +11,11 @@ class PublicHealthCenterRepositoryTest extends AbstractIntegrationContainerBaseT
     @Autowired
     private PublicHealthCenterRepository publicHealthCenterRepository
 
+    // 각 test 시작 전에 db 정리해주기
+    def setup() {
+        publicHealthCenterRepository.deleteAll()
+    }
+
     def "PublicHealthCenterRepository save"() {
         given:
         String address = "서울 특별시 성북구 종암동"
@@ -33,6 +38,29 @@ class PublicHealthCenterRepositoryTest extends AbstractIntegrationContainerBaseT
         result.getPublicHealthCenterName() == name
         result.getLatitude() == latitude
         result.getLongitude() == longitude
+    }
+
+    def "PublicHealthCenterRepository saveAll()"(){
+        given:
+        String address = "서울 특별시 성북구 종암동"
+        String name = "은혜 약국"
+        double latitude = 36.11
+        double longitude = 128.11
+
+        def publicHealthCenter = PublicHealthCenter.builder()
+                .publicHealthCenterAddress(address)
+                .publicHealthCenterName(name)
+                .latitude(latitude)
+                .longitude(longitude)
+                .build()
+
+        when:
+        publicHealthCenterRepository.saveAll(Arrays.asList(publicHealthCenter))
+        def result = publicHealthCenterRepository.findAll()
+
+        then:
+        result.size() == 1
+
     }
 
 }
