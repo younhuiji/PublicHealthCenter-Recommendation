@@ -1,6 +1,7 @@
 package com.example.product.api.service
 
 import org.springframework.boot.test.context.SpringBootTest
+import org.testcontainers.shaded.org.bouncycastle.util.test.Test
 import spock.lang.Specification
 
 import java.nio.charset.StandardCharsets

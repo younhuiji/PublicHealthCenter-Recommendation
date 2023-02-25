@@ -5,7 +5,7 @@ import org.testcontainers.containers.GenericContainer;
 import spock.lang.Specification;
 
 @SpringBootTest
-abstract class AbstractIntegerationContainerBaseTest extends Specification {
+abstract class AbstractIntegrationContainerBaseTest extends Specification {
 
     static final GenericContainer MY_REDIS_CONTAINER;
 
@@ -17,6 +17,7 @@ abstract class AbstractIntegerationContainerBaseTest extends Specification {
 
         System.setProperty("spring.redis.host", MY_REDIS_CONTAINER.getHost());
         System.setProperty("spring.redis.port", MY_REDIS_CONTAINER.getMappedPort(6379).toString());
-            }
+
+    }
 
 }

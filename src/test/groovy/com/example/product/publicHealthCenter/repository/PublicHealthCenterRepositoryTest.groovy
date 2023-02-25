@@ -1,12 +1,12 @@
 package com.example.product.publicHealthCenter.repository
 
-import com.example.product.AbstractIntegerationContainerBaseTest
+import com.example.product.AbstractIntegrationContainerBaseTest
 import com.example.product.publicHealthCenter.entity.PublicHealthCenter
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
 
-class PublicHealthCenterRepositoryTest extends AbstractIntegerationContainerBaseTest {
+class PublicHealthCenterRepositoryTest extends AbstractIntegrationContainerBaseTest {
 
     @Autowired
     private PublicHealthCenterRepository publicHealthCenterRepository
@@ -19,11 +19,11 @@ class PublicHealthCenterRepositoryTest extends AbstractIntegerationContainerBase
         double longitude = 128.11
 
         def publicHealthCenter = PublicHealthCenter.builder()
-        .publicHealthCenterAddress(address)
-        .publicHealthCenterName(name)
-        .latitude(latitude)
-        .longitude(longitude)
-        .build()
+                .publicHealthCenterAddress(address)
+                .publicHealthCenterName(name)
+                .latitude(latitude)
+                .longitude(longitude)
+                .build()
 
         when:
         def result = publicHealthCenterRepository.save(publicHealthCenter)
