@@ -1,7 +1,6 @@
 package com.example.product.api.service
 
-import org.springframework.boot.test.context.SpringBootTest
-import org.testcontainers.shaded.org.bouncycastle.util.test.Test
+
 import spock.lang.Specification
 
 import java.nio.charset.StandardCharsets
@@ -20,7 +19,7 @@ class KakaoUriBuilderServiceTest extends Specification {
         def charset = StandardCharsets.UTF_8
 
         when:
-        def uri = kakaoUriBuilderService.builderByAddressSearch(address)
+        def uri = kakaoUriBuilderService.buildUriByAddressSearch(address)
         def decodedResult = URLDecoder.decode(uri.toString(), charset)
 
         then:
