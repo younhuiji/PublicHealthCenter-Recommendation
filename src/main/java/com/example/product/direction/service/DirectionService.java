@@ -4,9 +4,11 @@ import com.example.product.api.dto.DocumentDto;
 import com.example.product.direction.entity.Direction;
 import com.example.product.publicHealthCenter.dto.PublicHealthCenterDto;
 import com.example.product.publicHealthCenter.service.PublicHealthCenterSearchService;
+import com.example.product.repository.DirectionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -20,7 +22,13 @@ public class DirectionService {
     private static final int MAX_SEARCH_COUNT = 3; // 약국 최대 검색 갯수
     private static final double RADIUS_KM = 10.0;  // 반경 10 km
 
+    private final DirectionRepository directionRepository;
     private final PublicHealthCenterSearchService publicHealthCenterSearchService;
+
+    public List<Direction> saveAll(List<Direction> directionList) {
+        if(CollectionUtils.isEmpty(directionList)) return Collections.emptyList();
+        return directionRepository.saveAll(directionList);
+    }
 
     public List<Direction> buildDirectionList(DocumentDto documentDto){
 
