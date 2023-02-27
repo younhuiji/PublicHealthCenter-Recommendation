@@ -20,10 +20,10 @@ class PublicHealthCenterRepositoryTest extends AbstractIntegrationContainerBaseT
 
     def "PublicHealthCenterRepository save"() {
         given:
-        String address = "서울 특별시 성북구 종암동"
-        String name = "은혜 약국"
-        double latitude = 36.11
-        double longitude = 128.11
+        String address = "부산광역시 중구 중구로 120"
+        String name = "중구"
+        double latitude = 35.10650760
+        double longitude = 129.0321071
 
         def publicHealthCenter = PublicHealthCenter.builder()
                 .publicHealthCenterAddress(address)
@@ -44,10 +44,10 @@ class PublicHealthCenterRepositoryTest extends AbstractIntegrationContainerBaseT
 
     def "PublicHealthCenterRepository saveAll()"(){
         given:
-        String address = "서울 특별시 성북구 종암동"
-        String name = "은혜 약국"
-        double latitude = 36.11
-        double longitude = 128.11
+        String address = "부산광역시 중구 중구로 120"
+        String name = "중구"
+        double latitude = 35.10650760
+        double longitude = 129.0321071
 
         def publicHealthCenter = PublicHealthCenter.builder()
                 .publicHealthCenterAddress(address)
@@ -67,8 +67,8 @@ class PublicHealthCenterRepositoryTest extends AbstractIntegrationContainerBaseT
     def "BaseTimeEntity 등록"(){
         given:
         LocalDateTime now = LocalDateTime.now()
-        String address = "서울 특별시 성북구 종암동"
-        String name = "은혜 약국"
+        String address = "부산광역시 중구 중구로 120"
+        String name = "중구"
 
         def publicHealthCenter = PublicHealthCenter.builder()
                     .publicHealthCenterAddress(address)

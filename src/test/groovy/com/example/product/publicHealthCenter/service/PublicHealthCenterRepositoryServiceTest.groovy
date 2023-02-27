@@ -22,8 +22,8 @@ class PublicHealthCenterRepositoryServiceTest extends AbstractIntegrationContain
     def "PublicHealthCenterRepository update - drity checking success"(){
         given:
         String inputAddress = "서울 특별시 성북구 종암동"
-        String modifiedAddress = "서울 광진구 구의동"
-        String name = "은혜 약국"
+        String modifiedAddress = "부산광역시 서구 부용로 30"
+        String name = "중구"
 
         def publicHealthCenter = PublicHealthCenter.builder()
                                 .publicHealthCenterAddress(inputAddress)
@@ -43,8 +43,8 @@ class PublicHealthCenterRepositoryServiceTest extends AbstractIntegrationContain
     def "PublicHealthCenterRepository update - drity checking fail"(){
         given:
         String inputAddress = "서울 특별시 성북구 종암동"
-        String modifiedAddress = "서울 광진구 구의동"
-        String name = "은혜 약국"
+        String modifiedAddress = "부산광역시 서구 부용로 30"
+        String name = "중구"
 
         def publicHealthCenter = PublicHealthCenter.builder()
                 .publicHealthCenterAddress(inputAddress)

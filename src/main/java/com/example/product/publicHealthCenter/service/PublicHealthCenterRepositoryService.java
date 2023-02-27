@@ -2,13 +2,11 @@ package com.example.product.publicHealthCenter.service;
 
 import com.example.product.publicHealthCenter.entity.PublicHealthCenter;
 import com.example.product.publicHealthCenter.repository.PublicHealthCenterRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.asm.Advice;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +41,7 @@ public class PublicHealthCenterRepositoryService {
         entity.changePublicHealthCenterAddress(address);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<PublicHealthCenter> findAll() {
         return publicHealthCenterRepository.findAll();
     }
