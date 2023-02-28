@@ -10,4 +10,9 @@ spring:
 kakao:
   rest:
     api:
-      key: 944c4d4eef0d185a196745e7c791ffc6
+      key: ${KAKAO_REST_API_KEY}
+
+publicHealthCenter:
+  recommendation:
+    base:
+      url: http://localhost:8080/dir/

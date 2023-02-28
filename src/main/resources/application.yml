@@ -16,7 +16,7 @@ spring:
 kakao:
   rest:
     api:
-      key: 944c4d4eef0d185a196745e7c791ffc6
+      key: ${KAKAO_REST_API_KEY}
 
 # ...
 
@@ -29,16 +29,20 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/public-health-center-recommendation
-    username: root
-    password: 1234
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   redis:
     host: localhost
     port: 6379
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
 
+publicHealthCenter:
+  recommendation:
+    base:
+      url: http://localhost:8080/dir/
 
 ---
 
