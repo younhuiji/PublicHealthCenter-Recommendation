@@ -9,6 +9,7 @@ import com.example.product.repository.DirectionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -27,16 +28,18 @@ public class DirectionService {
     private final PublicHealthCenterSearchService publicHealthCenterSearchService;
     private final KakaoCategorySearchService kakaoCategorySearchService;
 
+    @Transactional
     public List<Direction> saveAll(List<Direction> directionList) {
         if(CollectionUtils.isEmpty(directionList)) return Collections.emptyList();
+        log.info("directionList={}", directionList);
         return directionRepository.saveAll(directionList);
     }
 
     public List<Direction> buildDirectionList(DocumentDto documentDto){
-
+        log.info("documentDto22222={}",documentDto );
         if(Objects.isNull(documentDto)) return Collections.emptyList();
 
-        // 약국 데이터 조회
+        // 보건소 데이터 조회
         // 거리 계산 알고리즘을 이용하여, 고객과 보건소 사이의 거리를 계산하고 sort
         return publicHealthCenterSearchService.searchPublicHealthCenterDtoList()
                 .stream().map(publicHealthCenterDto ->

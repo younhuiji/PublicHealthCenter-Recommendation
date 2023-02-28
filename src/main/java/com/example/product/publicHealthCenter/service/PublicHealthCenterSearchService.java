@@ -20,12 +20,19 @@ public class PublicHealthCenterSearchService {
 
             // redis
 
-            // db
+            List list= publicHealthCenterRepositoryService.findAll()
+                    .stream()
+                    .map(this::convertToPublicHealthCenterDto) // option +  enter : map(entity -> convertToPublicHealthCenterDto(entity))
+                    .collect(Collectors.toList());
+            log.info("findAll={}",list);
 
+            // db
             return  publicHealthCenterRepositoryService.findAll()
                     .stream()
                     .map(this::convertToPublicHealthCenterDto) // option +  enter : map(entity -> convertToPublicHealthCenterDto(entity))
                     .collect(Collectors.toList());
+
+
         }
 
             private PublicHealthCenterDto convertToPublicHealthCenterDto(PublicHealthCenter publicHealthCenter){

@@ -16,7 +16,7 @@ services:
     image: huijiyoon/public-health-center-recommendation-database
     environment:
       - MARIADB_DATABASE=public-health-center-recommendation
-      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=1234
     volumes:
       - ./database/config:/etc/mysql/conf.d
       - ./database/init:/docker-entrypoint-initdb.d

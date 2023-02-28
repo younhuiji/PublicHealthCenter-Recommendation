@@ -19,10 +19,10 @@
 -- Table structure for table `publicHealthCenter`
 --
 
-DROP TABLE IF EXISTS `publicHealthCenter`;
+DROP TABLE IF EXISTS `public_health_center`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `publicHealthCenter` (
+CREATE TABLE `public_health_center` (
                             `id` bigint(20) NOT NULL AUTO_INCREMENT,
                             `created_date` datetime(6) DEFAULT NULL,
                             `modified_date` datetime(6) DEFAULT NULL,
@@ -38,9 +38,9 @@ CREATE TABLE `publicHealthCenter` (
 -- Dumping data for table `publicHealthCenter`
 --
 
-LOCK TABLES `publicHealthCenter` WRITE;
-/*!40000 ALTER TABLE `publicHealthCenter` DISABLE KEYS */;
-INSERT INTO `publicHealthCenter` VALUES
+LOCK TABLES `public_health_center` WRITE;
+/*!40000 ALTER TABLE `public_health_center` DISABLE KEYS */;
+INSERT INTO `public_health_center` VALUES
                            (1,'2022-10-17 23:46:34.982624','2022-10-17 23:46:34.982624',35.10650760,129.0321071,'부산광역시 중구 중구로 120','중구'),
                            (2,'2022-10-17 23:46:35.025774','2022-10-17 23:46:35.025774',35.10753860,129.0159046,'부산광역시 서구 부용로 30','서구'),
                            (3,'2022-10-17 23:46:35.028083','2022-10-17 23:46:35.028083',35.12934840,129.0427185,'부산광역시 동구 구청로 1','동구'),
@@ -59,7 +59,7 @@ INSERT INTO `publicHealthCenter` VALUES
                            (16,'2022-10-17 23:46:35.052790','2022-10-17 23:46:35.052790',35.24352670,129.2207769,'부산광역시 기장군 기장읍 기장대로560','기장군');
 
 
-/*!40000 ALTER TABLE `publicHealthCenter` ENABLE KEYS */;
+/*!40000 ALTER TABLE `public_health_center` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
